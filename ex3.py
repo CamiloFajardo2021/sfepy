@@ -64,7 +64,7 @@ V = FunctionSpace(mesh, 'P', 1)
 von_Mises = project(von_Mises, V)
 #fe.plot(von_Mises, title='Stress intensity')
 file = File("stress1.pvd")
-file << von_Misses
+file << von_Mises
 
 # Compute magnitude of displacement
 u_magnitude = sqrt(dot(u, u))
