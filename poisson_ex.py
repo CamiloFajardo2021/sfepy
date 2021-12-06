@@ -1,3 +1,4 @@
+from fenics import*
 import fenics as fe
 # Create mesh and define function space
 mesh = fe.UnitSquareMesh(6, 4)
