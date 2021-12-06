@@ -20,10 +20,10 @@ L = f*v*dx
 u = fe.Function(V)
 fe.solve(a == L, u, bc)
 # Plot solution and mesh
-plot(u)
-plot(mesh)
+plt.show(u)
+plt.show(mesh)
 # Dump solution to file in VTK format
 file = File("poisson.pvd")
 file << u
 # Hold plot
-plt.interactive()
+#plt.interactive()
