@@ -18,8 +18,8 @@ L = f*v*dx
 u = fe.Function(V)
 fe.solve(a == L, u, bc)
 # Plot solution and mesh
-fe.plot(u)
-fe.plot(mesh)
+plot(u)
+plot(mesh)
 # Dump solution to file in VTK format
 file = File("poisson.pvd")
 file << u
