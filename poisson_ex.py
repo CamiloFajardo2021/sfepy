@@ -1,6 +1,7 @@
 from fenics import*
 import fenics as fe
 from dolfin import*
+import matplotlib.pyplot as plt
 # Create mesh and define function space
 mesh = fe.UnitSquareMesh(6, 4)
 V = fe.FunctionSpace(mesh, "Lagrange", 1)
@@ -25,4 +26,4 @@ plot(mesh)
 file = File("poisson.pvd")
 file << u
 # Hold plot
-interactive()
+plt.interactive()
