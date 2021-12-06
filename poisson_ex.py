@@ -28,3 +28,4 @@ file = File("poisson.pvd")
 file << u
 # Hold plot
 #plt.interactive()
+plt.show()
