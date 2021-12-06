@@ -1,5 +1,7 @@
 from fenics import *
 from dolfin import*
+from ufl import nabla_grad
+from ufl import nabla_div
 
 # Scaled variables
 L = 1; W = 0.2
