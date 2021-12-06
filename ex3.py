@@ -70,9 +70,9 @@ u_magnitude = project(u_magnitude, V)
 file = File("stress2.pvd")
 file << u_magnitude
 #fe.plot(u_magnitude, 'Displacement magnitude')
-print('min/max u:',
-      u_magnitude.vector().array().min(),
-      u_magnitude.vector().array().max())
+#print('min/max u:',
+#      u_magnitude.vector().array().min(),
+#      u_magnitude.vector().array().max())
 file = File("stress.pvd")
 file << u
 
