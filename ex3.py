@@ -50,10 +50,10 @@ u = Function(V)
 solve(a == L, u, bc)
 print(u)
 
-Plot solution
+#Plot solution
 fe.plot(u, title='Displacement', mode='displacement')
 
- Plot stress
+#Plot stress
 s = sigma(u) - (1./3)*tr(sigma(u))*Identity(d)  # deviatoric stress
 von_Mises = sqrt(3./2*inner(s, s))
 V = FunctionSpace(mesh, 'P', 1)
