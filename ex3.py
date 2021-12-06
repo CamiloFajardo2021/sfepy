@@ -1,4 +1,5 @@
 from fenics import *
+import fenics as fe
 from dolfin import*
 from ufl import nabla_grad
 from ufl import nabla_div
