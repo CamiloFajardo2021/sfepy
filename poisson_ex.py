@@ -1,6 +1,6 @@
 import fenics as fe
 # Create mesh and define function space
-mesh = fe.UnitSquare(6, 4)
+mesh = fe.UnitSquareMesh(6, 4)
 V = fe.FunctionSpace(mesh, "Lagrange", 1)
 # Define boundary conditions
 u0 = fe.Expression("1 + x[0]*x[0] + 2*x[1]*x[1]")
