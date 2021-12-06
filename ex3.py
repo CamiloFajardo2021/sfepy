@@ -48,6 +48,7 @@ L = dot(f, v)*dx + dot(T, v)*ds
 # Compute solution
 u = Function(V)
 solve(a == L, u, bc)
+print(u)
 
 # Plot solution
 plot(u, title='Displacement', mode='displacement')
