@@ -1,4 +1,5 @@
 from fenics import *
+from dolfin import*
 
 # Scaled variables
 L = 1; W = 0.2
