@@ -52,8 +52,7 @@ solve(a == L, u, bc)
 print(u)
 
 # Dump solution to file in VTK format
-file = File("stress.pvd")
-file << u
+
 #Plot solution
 #fe.plot(u, title='Displacement', mode='displacement')
 
@@ -63,8 +62,7 @@ von_Mises = sqrt(3./2*inner(s, s))
 V = FunctionSpace(mesh, 'P', 1)
 von_Mises = project(von_Mises, V)
 #fe.plot(von_Mises, title='Stress intensity')
-file = File("stress1.pvd")
-file << von_Mises
+
 
 # Compute magnitude of displacement
 u_magnitude = sqrt(dot(u, u))
@@ -72,6 +70,14 @@ u_magnitude = project(u_magnitude, V)
 file = File("stress2.pvd")
 file << u_magnitude
 #fe.plot(u_magnitude, 'Displacement magnitude')
-#print('min/max u:',
- #     u_magnitude.vector().array().min(),
- #     u_magnitude.vector().array().max())
+print('min/max u:',
+      u_magnitude.vector().array().min(),
+      u_magnitude.vector().array().max())
+file = File("stress.pvd")
+file << u
+
+file = File("stress1.pvd")
+file << von_Mises
+
+file = File("stress2.pvd")
+file << u_magnitude
