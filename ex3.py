@@ -58,15 +58,19 @@ file << u
 #fe.plot(u, title='Displacement', mode='displacement')
 
 #Plot stress
-#s = sigma(u) - (1./3)*tr(sigma(u))*Identity(d)  # deviatoric stress
-#von_Mises = sqrt(3./2*inner(s, s))
-#V = FunctionSpace(mesh, 'P', 1)
-#von_Mises = project(von_Mises, V)
+s = sigma(u) - (1./3)*tr(sigma(u))*Identity(d)  # deviatoric stress
+von_Mises = sqrt(3./2*inner(s, s))
+V = FunctionSpace(mesh, 'P', 1)
+von_Mises = project(von_Mises, V)
 #fe.plot(von_Mises, title='Stress intensity')
+file = File("stress1.pvd")
+file << von_Misses
 
 # Compute magnitude of displacement
-#u_magnitude = sqrt(dot(u, u))
-#u_magnitude = project(u_magnitude, V)
+u_magnitude = sqrt(dot(u, u))
+u_magnitude = project(u_magnitude, V)
+file = File("stress2.pvd")
+file << u_magnitude
 #fe.plot(u_magnitude, 'Displacement magnitude')
 #print('min/max u:',
  #     u_magnitude.vector().array().min(),
