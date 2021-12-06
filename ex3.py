@@ -2,6 +2,7 @@ from fenics import *
 from dolfin import*
 from ufl import nabla_grad
 from ufl import nabla_div
+import matplotlib as plt
 
 # Scaled variables
 L = 1; W = 0.2
@@ -48,19 +49,19 @@ u = Function(V)
 solve(a == L, u, bc)
 
 # Plot solution
-plot(u, title='Displacement', mode='displacement')
+plt(u, title='Displacement', mode='displacement')
 
 # Plot stress
 s = sigma(u) - (1./3)*tr(sigma(u))*Identity(d)  # deviatoric stress
 von_Mises = sqrt(3./2*inner(s, s))
 V = FunctionSpace(mesh, 'P', 1)
 von_Mises = project(von_Mises, V)
-plot(von_Mises, title='Stress intensity')
+plt(von_Mises, title='Stress intensity')
 
 # Compute magnitude of displacement
 u_magnitude = sqrt(dot(u, u))
 u_magnitude = project(u_magnitude, V)
-plot(u_magnitude, 'Displacement magnitude')
+plt(u_magnitude, 'Displacement magnitude')
 print('min/max u:',
       u_magnitude.vector().array().min(),
       u_magnitude.vector().array().max())
