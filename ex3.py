@@ -51,14 +51,14 @@ solve(a == L, u, bc)
 print(u)
 
 # Plot solution
-plot(u, title='Displacement', mode='displacement')
+#plot(u, title='Displacement', mode='displacement')
 
 # Plot stress
-s = sigma(u) - (1./3)*tr(sigma(u))*Identity(d)  # deviatoric stress
-von_Mises = sqrt(3./2*inner(s, s))
-V = FunctionSpace(mesh, 'P', 1)
-von_Mises = project(von_Mises, V)
-plot(von_Mises, title='Stress intensity')
+#s = sigma(u) - (1./3)*tr(sigma(u))*Identity(d)  # deviatoric stress
+#von_Mises = sqrt(3./2*inner(s, s))
+#V = FunctionSpace(mesh, 'P', 1)
+#von_Mises = project(von_Mises, V)
+#plot(von_Mises, title='Stress intensity')
 
 # Compute magnitude of displacement
 u_magnitude = sqrt(dot(u, u))
