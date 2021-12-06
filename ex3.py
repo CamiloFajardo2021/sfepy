@@ -3,6 +3,7 @@ from dolfin import*
 from ufl import nabla_grad
 from ufl import nabla_div
 import matplotlib as plt
+from mpl_toolkits import mplot3d
 
 # Scaled variables
 L = 1; W = 0.2
