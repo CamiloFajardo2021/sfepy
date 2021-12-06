@@ -3,7 +3,7 @@ import fenics as fe
 mesh = fe.UnitSquareMesh(6, 4)
 V = fe.FunctionSpace(mesh, "Lagrange", 1)
 # Define boundary conditions
-u0 = fe.Expression("1 + x[0]*x[0] + 2*x[1]*x[1]")
+u0 = fe.Expression("1 + x[0]*x[0] + 2*x[1]*x[1]",degree=1)
 def u0_boundary(x, on_boundary):
     return on_boundary
 bc = fe.DirichletBC(V, u0, u0_boundary)
