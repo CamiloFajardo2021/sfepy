@@ -58,7 +58,7 @@ def mesh_test1 ( ):
 #  Unit cube.
 #
   my_mesh = UnitCubeMesh ( 4, 2, 3 )
-  file = File("Unit_cube_mesh")
+  file = File("Unit_cube_mesh.pvd")
   file << my_mesh
   print ( '  Plotting a UnitCubeMesh' )
   #plot ( my_mesh, title = 'UnitCubeMesh' )
