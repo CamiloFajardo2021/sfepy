@@ -58,13 +58,15 @@ def mesh_test1 ( ):
 #  Unit cube.
 #
   my_mesh = UnitCubeMesh ( 4, 2, 3 )
+  file = File("Unit_cube_mesh")
+  file << my_mesh
   print ( '  Plotting a UnitCubeMesh' )
-  plot ( my_mesh, title = 'UnitCubeMesh' )
-  filename = 'unitcubemesh.png'
-  plt.savefig ( filename )
-  print ( '  Graphics saved as "%s"' % ( filename ) )
-  plt.close ( )
-  print ( '  UnitCubeMesh created %d cells.' % ( my_mesh.num_cells ( ) ) )
+  #plot ( my_mesh, title = 'UnitCubeMesh' )
+  #filename = 'unitcubemesh.png'
+  #plt.savefig ( filename )
+  #print ( '  Graphics saved as "%s"' % ( filename ) )
+  #plt.close ( )
+  #print ( '  UnitCubeMesh created %d cells.' % ( my_mesh.num_cells ( ) ) )
 #
 #  Use MSHR to mesh a circle minus rectangle.
 #
