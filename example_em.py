@@ -1,6 +1,6 @@
 #Tomado de https://scicomp.stackexchange.com/questions/32844/electromagnetism-fem-fenics-interpolation-leakage-effect
 
-rom dolfin import *
+from dolfin import *
 import matplotlib.pyplot as plt
 import numpy as np
 import mshr
