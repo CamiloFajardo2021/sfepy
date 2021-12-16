@@ -4,8 +4,8 @@ import numpy as np
 def get_facet_normal(bmesh):
     '''Manually calculate FacetNormal function'''
 
-    if not bmesh.type().dim() == 1:
-        raise ValueError('Only works for 2-D mesh')
+    #if not bmesh.type().dim() == 1:
+     #   raise ValueError('Only works for 2-D mesh')
 
     vertices = bmesh.coordinates()
     cells = bmesh.cells()
