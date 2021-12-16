@@ -1103,7 +1103,7 @@ iterator over "interior_edges" is not implemented
 """
     computed = _test(g1, [0.7, 0.5])
     msg = _str_equal(expected, computed)
-    print 'msg: [%s]' % msg
+    print ('msg: [%s]') % msg
     success = not msg
     assert success, msg
 
@@ -1113,14 +1113,14 @@ iterator over "interior_edges" is not implemented
     _test(g2, [(0.2,0.2), (1,2)])
     g3 = UniformBoxGrid(min=(0,0,-1), max=(1,1,1), division=(4,1,2))
     _test(g3)
-    print 'g3=\n%s' % str(g3)
-    print 'g3[Z]=', g3[Z]
-    print 'g3[Z][1] =', g3[Z][1]
-    print 'dx, dy, dz spacings:', g3.delta
+    print ('g3=\n%s' % str(g3))
+    print ('g3[Z]=', g3[Z])
+    print ('g3[Z][1] =', g3[Z][1])
+    print ('dx, dy, dz spacings:', g3.delta)
     g4 = UniformBoxGrid(min=(0,-1), max=(1,1),
                         division=(4,2), dirnames=('y','z'))
     _test(g4)
-    print 'g4["y"][-1]:', g4["y"][-1]
+    print ('g4["y"][-1]:', g4["y"][-1])
 
 def _test3():
     from numpy import sin, zeros, exp
@@ -1130,20 +1130,20 @@ def _test3():
         g.vectorized_eval(lambda x,y: 2)
     except TypeError as msg:
         # fine, expect to arrive here
-        print '*** Expected error in this test:', msg
+        print ('*** Expected error in this test:', msg)
     try:
         g.vectorized_eval(lambda x,y: zeros((2,2))+2)
     except IndexError as msg:
         # fine, expect to arrive here
-        print '*** Expected error in this test:', msg
+        print ('*** Expected error in this test:', msg)
 
     a = g.vectorized_eval(lambda x,y: sin(x)*exp(y-x))
-    print a
+    print (a)
     a = g.vectorized_eval(lambda x,y: zeros(g.shape)+2)
-    print a
+    print (a)
 
 def _test_field(g):
-    print 'grid: %s' % g
+    print ('grid: %s' % g)
 
     # function: 1 + x + y + z
     def f(*args):
@@ -1173,11 +1173,11 @@ def _test_field(g):
     midptindex = tuple(array(g.shape,int)/2)
     ptcoor = g[midptindex]
     # tuples with just one item does not work as indices
-    print 'mid point %s has indices %s' % (ptcoor, midptindex)
-    print 'f%s=%g' % (ptcoor, f(*ptcoor))
-    print 'u at %s: %g' % (midptindex, u[midptindex])
+    print ('mid point %s has indices %s' % (ptcoor, midptindex))
+    print ('f%s=%g' % (ptcoor, f(*ptcoor)))
+    print ('u at %s: %g' % (midptindex, u[midptindex]))
     v_index = list(midptindex); v_index.append(slice(g.nsd))
-    print 'v at %s: %s' % (midptindex, v[v_index])
+    print ('v at %s: %s' % (midptindex, v[v_index]))
 
     # test extraction of lines:
     if u.grid.nsd >= 2:
@@ -1185,10 +1185,10 @@ def _test_field(g):
         coor, u_coor, fixed_coor, snapped = \
               u.gridline(u.grid.min_coor, direction)
         if snapped: print 'Error: snapped line'
-        print 'line in x[%d]-direction, starting at %s' % \
-              (direction, u.grid.min_coor)
-        print coor
-        print u_coor
+        print ('line in x[%d]-direction, starting at %s' % \
+              (direction, u.grid.min_coor))
+        print (coor)
+        print (u_coor)
 
         direction = 0
         point = u.grid.min_coor.copy()
@@ -1196,21 +1196,21 @@ def _test_field(g):
         coor, u_coor, fixed_coor, snapped = \
               u.gridline(u.grid.min_coor, direction)
         if snapped: print 'Error: snapped line'
-        print 'line in x[%d]-direction, starting at %s' % \
-              (direction, point)
-        print coor
-        print u_coor
+        print ('line in x[%d]-direction, starting at %s' % \
+              (direction, point))
+        print (coor)
+        print (u_coor)
 
     if u.grid.nsd == 3:
         y_center = (u.grid.max_coor[1] + u.grid.min_coor[1])/2.0
         xc, yc, uc, fixed_coor, snapped = \
             u.gridplane(value=y_center, constant_coor=1)
-        print 'Plane y=%g:' % fixed_coor,
-        if snapped: print ' (snapped from y=%g)' % y_center
+        print ('Plane y=%g:' % fixed_coor,
+        if snapped: print (' (snapped from y=%g)' % y_center)
         else: print
-        print xc
-        print yc
-        print uc
+        print (xc)
+        print (yc)
+        print (uc)
 
 def _test4():
     g1 = UniformBoxGrid(min=0, max=1, division=4)
