@@ -328,7 +328,7 @@ class UniformBoxGrid(object):
         try:
             self.compatible(a)
         except (IndexError,TypeError) as e:
-            print 'e=',e, type(e), e.__class__.__name__
+            print( 'e=',e, type(e), e.__class__.__name__)
             raise e.__class__('BoxGrid.vectorized_eval(f):\n%s, BUT:\n%s' % \
                               (msg, e))
         return a
