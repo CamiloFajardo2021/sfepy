@@ -24,7 +24,7 @@ def get_facet_normal(bmesh):
 
     for n in (0,1):
         dofmap = V.sub(n).dofmap()
-        for i in xrange(dofmap.global_dimension()):
+        for i in range(dofmap.global_dimension()):
             dof_indices = dofmap.cell_dofs(i)
             assert len(dof_indices) == 1
             nv[dof_indices[0]] = normals[i, n]
