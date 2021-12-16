@@ -450,9 +450,9 @@ class UniformBoxGrid(object):
                             self._slices[-1].append((0, slice(i2, i2+1, 1)))
 
         elif self.iterator_domain == 'all_edges':
-            print 'iterator over "all_edges" is not implemented'
+            print ('iterator over "all_edges" is not implemented')
         elif self.iterator_domain == 'interior_edges':
-            print 'iterator over "interior_edges" is not implemented'
+            print ('iterator over "interior_edges" is not implemented')
         else:
             raise ValueError('iterator over "%s" is not impl.' % \
                              self.iterator_domain)
