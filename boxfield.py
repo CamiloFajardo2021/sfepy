@@ -1184,7 +1184,7 @@ def _test_field(g):
         direction = u.grid.nsd-1
         coor, u_coor, fixed_coor, snapped = \
               u.gridline(u.grid.min_coor, direction)
-        if snapped: (print 'Error: snapped line')
+        if snapped: print ('Error: snapped line')
         print ('line in x[%d]-direction, starting at %s' % \
               (direction, u.grid.min_coor))
         print (coor)
