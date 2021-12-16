@@ -754,6 +754,7 @@ if __name__ == '__main__':
         print('%d: %s (%s)' % (nr, demos[nr].__doc__, demos[nr].__name__))
     print('')
     nr = input('Pick a demo: ')
+    nr = int(nr)
 
     # Run demo
     demos[nr]()
