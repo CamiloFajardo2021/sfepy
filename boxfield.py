@@ -1205,7 +1205,7 @@ def _test_field(g):
         y_center = (u.grid.max_coor[1] + u.grid.min_coor[1])/2.0
         xc, yc, uc, fixed_coor, snapped = \
             u.gridplane(value=y_center, constant_coor=1)
-        print ('Plane y=%g:' % fixed_coor,
+        print ('Plane y=%g:') % fixed_coor,
         if snapped: print (' (snapped from y=%g)' % y_center)
         else: print
         print (xc)
