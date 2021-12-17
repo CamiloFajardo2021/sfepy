@@ -21,7 +21,7 @@ from __future__ import print_function
 from fenics import *
 from boxfield import *
 import numpy as np
-
+#import matplotlib.pyplot as plt
 #---------------------------------------------------------------------
 # Solvers
 #---------------------------------------------------------------------
@@ -770,4 +770,4 @@ if __name__ == '__main__':
 
     # Hold plot
     #interactive()
-    plot.show()
+    plt.show()
