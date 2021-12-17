@@ -52,21 +52,30 @@ def solver(kappa, f, u_D, Nx, Ny,
     v = TestFunction(V)
     a = kappa*dot(grad(u), grad(v))*dx
     L = f*v*dx
-
+    #---------
+    prm=LinearVariationalSolver.default_parameters()
+    prm = parameters['krylov_solver'] # short form
+    prm['absolute_tolerance'] = abs_tol
+    prm['relative_tolerance'] = rel_tol
+    prm['maximum_iterations'] = max_iter
+    #---------
     # Set linear solver parameters
-    prm = LinearVariationalSolver.default_parameters()
-    if linear_solver == 'Krylov':
-        prm.linear_solver = 'gmres'
-        prm.preconditioner = 'ilu'
-        prm.krylov_solver.absolute_tolerance = abs_tol
-        prm.krylov_solver.relative_tolerance = rel_tol
-        prm.krylov_solver.maximum_iterations = max_iter
-    else:
-        prm.linear_solver = 'lu'
+    #prm = LinearVariationalSolver.default_parameters()
+    #if linear_solver == 'Krylov':
+    #    prm.linear_solver = 'gmres'
+    #    prm.preconditioner = 'ilu'
+    #    prm.krylov_solver.absolute_tolerance = abs_tol
+    #    prm.krylov_solver.relative_tolerance = rel_tol
+    #    prm.krylov_solver.maximum_iterations = max_iter
+    #else:
+    #    prm.linear_solver = 'lu'
 
     # Compute solution
     u = Function(V)
-    solve(a == L, u, bc, solver_parameters=prm)
+    #solve(a == L, u, bc, solver_parameters=prm)
+    solve(a == L, u, bc,
+      solver_parameters={'linear_solver': 'gmres',
+                         'preconditioner': 'ilu'})
 
     return u
 
