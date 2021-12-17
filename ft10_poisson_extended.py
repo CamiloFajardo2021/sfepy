@@ -21,7 +21,7 @@ from __future__ import print_function
 from fenics import *
 from boxfield import *
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 #---------------------------------------------------------------------
 # Solvers
 #---------------------------------------------------------------------
