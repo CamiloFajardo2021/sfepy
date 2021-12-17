@@ -769,4 +769,5 @@ if __name__ == '__main__':
     demos[nr]()
 
     # Hold plot
-    interactive()
+    #interactive()
+    plot.show()
